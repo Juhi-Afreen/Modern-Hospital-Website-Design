@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Hospitalia - Premium Healthcare</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <!-- Lucide Icons -->
+   <script src="https://unpkg.com/lucide@latest"></script>
+   <!-- GSAP & ScrollTrigger -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+   <link rel="stylesheet" href="css/styles.css">
+   <script src="js/config.js"></script>
+</head>
+
+<body class="bg-white text-slate-800 antialiased selection:bg-teal-100 selection:text-teal-900 overflow-x-hidden">
+
+   <!-- Component Containers -->
+   <div id="navbar-component"></div>
+
+   <!-- Hero & Stats Wrapper for Shared Background -->
+   <div class="relative overflow-hidden hero-pattern">
+      <!-- Animated Background Shapes -->
+      <div class="shape-blob w-96 h-96 bg-blue-200 top-[-10%] left-[-10%] animate-[float-slow_20s_infinite_ease-in-out]"></div>
+      <div class="shape-blob w-80 h-80 bg-teal-100 bottom-[15%] right-[-5%] animate-[float-slower_25s_infinite_ease-in-out]"></div>
+      <div class="shape-blob w-64 h-64 bg-indigo-100 top-[20%] right-[10%] animate-[float-slow_22s_infinite_ease-in-out_reverse] hidden lg:block"></div>
+      <div class="shape-blob w-72 h-72 bg-purple-200 bottom-[5%] left-[-2%] animate-[float-slow_22s_infinite_ease-in-out] opacity-70"></div>
+
+      <div id="hero-component"></div>
+      <div id="stats-component"></div>
+   </div>
+
+   <div id="services-component"></div>
+   <div id="departments-component"></div>
+   <div id="doctors-component"></div>
+   <div id="process-component"></div>
+   <div id="appointment-component"></div>
+   <div id="faq-component"></div>
+   <div id="blog-component"></div>
+   <div id="footer-component"></div>
+
+   <!-- Main Logic Scope -->
+   <script src="js/main.js"></script>
+
+   <script>
+      // Simple Component Loader
+      const components = [
+         { id: 'navbar-component', url: 'components/navbar.html' },
+         { id: 'hero-component', url: 'components/hero.html' },
+         { id: 'stats-component', url: 'components/stats.html' },
+         { id: 'services-component', url: 'components/services.html' },
+         { id: 'departments-component', url: 'components/departments.html' },
+         { id: 'doctors-component', url: 'components/doctors.html' },
+         { id: 'process-component', url: 'components/process.html' },
+         { id: 'appointment-component', url: 'components/appointment-form.html' },
+         { id: 'faq-component', url: 'components/faq.html' },
+         { id: 'blog-component', url: 'components/blog.html' },
+         { id: 'footer-component', url: 'components/footer.html' }
+      ];
+
+      async function loadComponents() {
+         try {
+            const promises = components.map(async (comp) => {
+               const element = document.getElementById(comp.id);
+               if (!element) return;
+
+               const response = await fetch(comp.url);
+               if (!response.ok) throw new Error(`Failed to load ${comp.url}`);
+
+               const html = await response.text();
+               // Replace the placeholder div with the component content (stripping the div)
+               element.outerHTML = html;
+            });
+
+            await Promise.all(promises);
+
+            // Re-initialize scripts after DOM is ready
+            if (window.initializeWebsite) {
+               window.initializeWebsite();
+            }
+         } catch (error) {
+            console.error('Error loading components:', error);
+         }
+      }
+
+      // Start loading
+      loadComponents();
+   </script>
+</body>
+
+</html>

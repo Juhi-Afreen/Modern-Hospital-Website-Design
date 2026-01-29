@@ -1,0 +1,51 @@
+<!-- How It Works -->
+<section class="py-24 bg-white relative overflow-hidden" id="process-section">
+   <div class="absolute inset-0 bg-primary-50/50 -skew-y-3 transform origin-top-left z-0"></div>
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16">
+         <span class="reveal text-teal-600 font-bold tracking-wider text-sm uppercase block">Process</span>
+         <h2 class="reveal delay-100 text-3xl lg:text-4xl font-bold text-slate-900 mt-2">How It Works</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 relative">
+         <!-- Connector Line Container (Desktop) -->
+         <!-- Positioning matches the center of the columns -->
+         <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 -z-10">
+            <!-- Background Dashed Line -->
+            <div class="absolute inset-0 border-t-2 border-dashed border-slate-300"></div>
+            <!-- Animated Progress Line (Solid Blue) -->
+            <div id="process-line-fill" class="absolute top-0 left-0 h-0.5 bg-primary-600 w-0 shadow-glow"></div>
+         </div>
+
+         <!-- Step 1 -->
+         <div id="step-1" class="text-center opacity-0 transform translate-y-8">
+            <div class="w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-primary-50 mb-6 relative z-10">
+               <span class="absolute top-0 right-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md">1</span>
+               <i data-lucide="calendar-check" class="w-10 h-10 text-primary-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Book Appointment</h3>
+            <p class="text-slate-500 text-sm px-4">Schedule your visit online or via phone easily.</p>
+         </div>
+
+         <!-- Step 2 -->
+         <div id="step-2" class="text-center opacity-0 transform translate-y-8">
+            <div class="w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-primary-50 mb-6 relative z-10">
+               <span class="absolute top-0 right-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md">2</span>
+               <i data-lucide="stethoscope" class="w-10 h-10 text-primary-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Medical Diagnosis</h3>
+            <p class="text-slate-500 text-sm px-4">Undergo a thorough check-up with our specialists.</p>
+         </div>
+
+         <!-- Step 3 -->
+         <div id="step-3" class="text-center opacity-0 transform translate-y-8">
+            <div class="w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-primary-50 mb-6 relative z-10">
+               <span class="absolute top-0 right-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md">3</span>
+               <i data-lucide="heart-pulse" class="w-10 h-10 text-primary-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Treatment & Care</h3>
+            <p class="text-slate-500 text-sm px-4">Receive personalized treatment and follow-up care.</p>
+         </div>
+      </div>
+   </div>
+</section>

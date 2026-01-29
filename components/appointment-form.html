@@ -1,0 +1,54 @@
+<!-- Appointment Section (CTA) -->
+<section id="appointment" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+   <div class="absolute top-0 right-0 w-96 h-96 bg-primary-600 opacity-20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="reveal text-3xl lg:text-5xl font-bold mb-6">Ready to prioritize your health?</h2>
+      <p class="reveal delay-100 text-slate-400 text-lg mb-10 max-w-2xl mx-auto">Book an appointment today and experience the difference of expert care in a state-of-the-art facility.</p>
+
+      <form id="appointment-form" class="reveal delay-200 bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-2xl">
+         <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <input type="text" placeholder="Full Name" class="w-full bg-slate-800 border-none rounded-xl py-3.5 px-5 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500">
+            <input type="email" placeholder="Email Address" class="w-full bg-slate-800 border-none rounded-xl py-3.5 px-5 text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500">
+            <select class="w-full bg-slate-800 border-none rounded-xl py-3.5 px-5 text-slate-400 focus:ring-2 focus:ring-primary-500">
+               <option>Select Department</option>
+               <option>Cardiology</option>
+               <option>Neurology</option>
+               <option>Pediatrics</option>
+               <option>Dental</option>
+            </select>
+            <input type="date" class="w-full bg-slate-800 border-none rounded-xl py-3.5 px-5 text-slate-400 focus:ring-2 focus:ring-primary-500">
+         </div>
+         <button type="submit" class="btn-ripple w-full md:w-auto px-10 py-4 bg-primary-600 hover:bg-primary-700 rounded-full font-bold transition-all shadow-glow">Confirm Appointment</button>
+      </form>
+
+      <!-- Popup Modal -->
+      <div id="appointment-success-popup" class="fixed inset-0 flex items-center justify-center bg-black/40 z-50 hidden">
+         <div class="bg-white text-slate-800 rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center">
+            <div class="mb-4">
+               <i data-lucide="check-circle" class="w-12 h-12 text-green-500 mx-auto"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Appointment Confirmed!</h3>
+            <p class="mb-6">Thank you for booking your appointment. We look forward to seeing you soon.</p>
+            <button id="close-appointment-popup" class="px-6 py-2 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition">Close</button>
+         </div>
+      </div>
+   </div>
+</section>
+
+<script>
+   // Appointment form popup logic
+   window.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('appointment-form');
+      var popup = document.getElementById('appointment-success-popup');
+      var closeBtn = document.getElementById('close-appointment-popup');
+      if (form && popup && closeBtn) {
+         form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            popup.classList.remove('hidden');
+         });
+         closeBtn.addEventListener('click', function () {
+            popup.classList.add('hidden');
+         });
+      }
+   });
+</script>
